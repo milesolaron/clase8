@@ -1,0 +1,11 @@
+.oculto {
+    display: none;
+}
+
+.error {
+    border: 1px solid red;
+}
+
+.mensaje-error {
+    color: red;
+}
