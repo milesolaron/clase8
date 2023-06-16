@@ -32,27 +32,27 @@ function validarEdades(edadIntegrante) {
 
 //Función que valida el formulario y se encarga de gestionar los posibles errores.
 function validarFormulario(validacion) {
-  const cantidadIntegrantes = form.integrantes.value;
+  const cantidadIntegrantes = document.querySelector('#calculadora-edades input[name="integrantes"]').value;
   const errorIntegrantes = validarCantidadIntegrantes(cantidadIntegrantes);
 
   const errores = {
     integrantes: errorIntegrantes,
   };
 
-  gestionarErrores(errores, form.integrantes);
+  gestionarErrores(errores, document.querySelector('#calculadora-edades input[name="integrantes"]'));
 
   if (validacion === "edadIntegrante") {
-    const edadIntegrante = form.edad.value;
+    const edadIntegrante = document.querySelector('#calculadora-edades').edad.value;
     const errorEdad = validarEdades(edadIntegrante);
-    gestionarErrores({ edad: errorEdad }, form.edad);
+    gestionarErrores({ edad: errorEdad }, document.querySelector('#calculadora-edades').edad);
   }
 }
 
 //Las funciones que validan los inputs son puestas en acción mediante la incorporación de un evento
-form.addEventListener("submit", function (event) {
+document.querySelector('#calculadora-edades').addEventListener("submit", function (event) {
   event.preventDefault(); 
-  validarCantidadIntegrantes(form.integrantes.value);
-  validarEdades(form.edad.value);
+  validarCantidadIntegrantes(document.querySelector('#calculadora-edades input[name="integrantes"]').value);
+  validarEdades(document.querySelector('#calculadora-edades input[name="edades"]').value);
 });
   
     if (error) {
