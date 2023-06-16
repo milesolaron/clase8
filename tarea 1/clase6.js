@@ -35,25 +35,26 @@ function obtenerMayorNumero(numeros) {
 
 
 document.querySelector('#siguiente-paso').onclick = function(event) {
-    const $cantidadIntegrantes = document.querySelector('#cantidad-integrantes');
-    const cantidadIntegrantes = Number($cantidadIntegrantes.value);
-  
-    borrarIntegrantesAnteriores();
-    crearIntegrantes(cantidadIntegrantes);
-  
-    event.preventDefault();
-  };
-  
-  document.querySelector('#calcular').onclick = function(event) {
-    const numeros = obtenerEdadesIntegrantes();
-    mostrarEdad('mayor', obtenerMayorNumero(numeros));
-    mostrarEdad('menor', obtenerMenorNumero(numeros));
-    mostrarEdad('promedio', obtenerPromedio(numeros));
-    mostrarResultados();
-  
-    event.preventDefault();
-  };
-  
+  const $cantidadIntegrantes = document.querySelector('#calculadora-edades input[name="integrantes"]');
+  const cantidadIntegrantes = Number($cantidadIntegrantes.value);
+
+  borrarIntegrantesAnteriores();
+  crearIntegrantes(cantidadIntegrantes);
+
+  event.preventDefault();
+};
+
+
+document.querySelector('#calcular').onclick = function(event) {
+  const numeros = obtenerEdadesIntegrantes();
+  mostrarEdad('mayor', obtenerMayorNumero(numeros));
+  mostrarEdad('menor', obtenerMenorNumero(numeros));
+  mostrarEdad('promedio', obtenerPromedio(numeros));
+  mostrarResultados();
+
+  event.preventDefault();
+};
+
   document.querySelector('#resetear').onclick = resetear;
   
   function borrarIntegrantesAnteriores() {
@@ -84,6 +85,7 @@ document.querySelector('#siguiente-paso').onclick = function(event) {
     $label.textContent = 'Edad del integrante #: ' + (indice + 1);
     const $input = document.createElement('input');
     $input.type = 'number';
+    $input.name = 'edades';
   
     $div.appendChild($label);
     $div.appendChild($input);
